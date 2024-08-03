@@ -1,0 +1,15 @@
+service: adoptspot
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ca-central-1
+  
+functions:
+  adoptspotPostApi:
+    handler: adoptSpotPostDetails.handler
+    events:
+      - httpApi:
+          path: /dev/myposts
+          method: POST
